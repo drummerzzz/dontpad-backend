@@ -6,7 +6,7 @@ import { ArticleControllerFactory } from '../../domain/factories';
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
