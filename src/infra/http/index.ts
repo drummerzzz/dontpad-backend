@@ -12,6 +12,18 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    url: req.url,
+    now: new Date().toISOString()
+  })
+});
+
+app.get('/health', (req: Request, res: Response) => {
+  res.send('ok')
+});
+
+
 app.get('/articles/:url', async (req: Request, res: Response) => {
   const { url } = req.params
   const factory = new ArticleControllerFactory({
