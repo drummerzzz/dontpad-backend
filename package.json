@@ -5,20 +5,30 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "connection-test": "npx ts-node database/index.ts",
+    "connection-test": "npx ts-node src/database/index.ts",
     "migrate": "npx prisma migrate dev",
-    "migrate-auto": "npx prisma migrate dev --name"
+    "migrate-auto": "npx prisma migrate dev --name",
+    "build": "npx tsc",
+    "start": "node dist/infra/http/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/infra/http/index.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.13",
     "@types/node": "^17.0.24",
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15",
     "prisma": "^3.12.0",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@prisma/client": "^3.12.0"
+    "@prisma/client": "^3.12.0",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "npm": "^8.7.0"
   }
 }
