@@ -8,7 +8,7 @@ dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 5000;
-const allowedOrigins = ['http://localhost:8080'];
+const allowedOrigins = ['http://localhost:8080', 'https://joaofilho.dev', 'https://editor.joaofilho.dev', 'https://dontpad-frontend.vercel.app/'];
 
 const corsOptions: cors.CorsOptions = {
   origin: allowedOrigins
